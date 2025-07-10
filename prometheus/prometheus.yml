@@ -1,0 +1,29 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: 'authentification'
+    static_configs:
+      - targets: ['host.docker.internal:5000']
+        labels:
+          service: 'authentification'
+  - job_name: 'bdd'
+    static_configs:
+      - targets: ['host.docker.internal:4001']
+        labels:
+          service: 'bdd'
+  - job_name: 'ai'
+    static_configs:
+      - targets: ['host.docker.internal:4003']
+        labels:
+          service: 'ai'
+  - job_name: 'payment'
+    static_configs:
+      - targets: ['host.docker.internal:4002']
+        labels:
+          service: 'payment'
+  - job_name: 'notification'
+    static_configs:
+      - targets: ['host.docker.internal:4004']
+        labels:
+          service: 'notification'
